@@ -95,6 +95,15 @@ button:hover,
     box-sizing: border-box;
 }
 
+.swal2-confirm {
+    min-height: 40px;      
+    padding: 0 1.5em;      
+    width: auto;           
+    font-size: 1em;        
+    border-radius: 6px;    
+}
+
+
 /* Tela do Jogo */
 .game-container {
     flex: 1;
@@ -218,7 +227,9 @@ button:hover,
     }
 
     .swal2-confirm {
-        width: 100%;
+        width: 100%;      
+        font-size: 1.1em; 
+        min-height: 48px; 
     }
 }
 
