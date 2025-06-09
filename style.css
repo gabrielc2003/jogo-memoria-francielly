@@ -1,15 +1,15 @@
-/* Reset básico e responsividade */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Tela de Login */
+
 body {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* <-- Ajuste aqui */
+    justify-content: flex-start; 
     align-items: center;
     min-height: 100vh;
     background: #1b0707;
@@ -88,6 +88,11 @@ button, #close-message {
 button:hover,
 #close-message:hover {
     background: #2ecc71;
+}
+
+.swal2-popup {
+    max-width: 90vw;
+    box-sizing: border-box;
 }
 
 /* Tela do Jogo */
@@ -199,6 +204,21 @@ button:hover,
 @media (min-width: 769px) {
     .container {
         margin-top: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .swal2-popup {
+        font-size: 0.95em;
+        padding: 1em;
+    }
+
+    .swal2-title {
+        font-size: 1.3em;
+    }
+
+    .swal2-confirm {
+        width: 100%;
     }
 }
 
