@@ -13,7 +13,7 @@ function verificarSenha() {
         });
     } else {
         Swal.fire({
-            title: "Você errou? 😡",
+            title: "Você errou?",
             text: "Tente de novo, amor 💕",
             icon: "error", // Corrigido aqui
             confirmButtonText: "Tentar novamente"
