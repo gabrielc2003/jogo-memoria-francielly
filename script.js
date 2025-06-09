@@ -84,14 +84,24 @@ function checkGameOver() {
         // Mostra o SweetAlert quando o jogo acaba
         Swal.fire({
             title: "Parabéns xuxu! 🎉",
-            text: "Você encontrou todos os pares! ❤️",
+            text: "Aceita ser a minha pessoa? Quer namorar comigo? ❤️",
             icon: "success",
-            confirmButtonText: "Jogar novamente"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                resetGame(); 
-            }
-        });
+            showDenyButton: true,
+            confirmButtonText: "Sim",
+            denyButtonText: "Claro!"
+            }).then((result) => {
+                if (result.isConfirmed || result.isDenied) {
+                    Swal.fire({
+                        title: "Estamos namorando agora! 💖",
+                        text: "Te amo muito 😍",
+                        icon: "success",
+                        confirmButtonText: "Oba!"
+                    }).then(() => {
+                        resetGame();
+                    });
+    }
+});
+
     }
 }
 
