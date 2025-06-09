@@ -1,5 +1,5 @@
 function verificarSenha() {
-    var senhaCorreta = "Kariny";
+    var senhaCorreta = "Felipe";
     var senhaDigitada = document.getElementById("senha").value;
     
     if (senhaDigitada.toLowerCase() === senhaCorreta.toLowerCase()) {
