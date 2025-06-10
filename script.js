@@ -99,7 +99,7 @@ function checkGameOver(forced = false) {
                 if (typeof confetti === 'function') {
                     confetti({
                         particleCount: 1000,
-                        spread: 200,
+                        spread: 800,
                         origin: { y: 0.4 }
                     });
                 } else {
