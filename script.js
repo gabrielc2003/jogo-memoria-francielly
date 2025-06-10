@@ -22,7 +22,7 @@ function verificarSenha() {
 }
 
 document.getElementById('close-message').addEventListener('click', function() {
-    document.querySelector('.mensagem').style.display = 'none';
+document.querySelector('.mensagem').style.display = 'none';
 });
 
 let images = [
@@ -84,32 +84,41 @@ function iniciarJogo() {
     });
 }
 
-function checkGameOver() {
+function checkGameOver(forced = false) {
     const allCardsFlipped = document.querySelectorAll('.card:not(.flipped)').length === 0;
-    if (allCardsFlipped) {
+    
+    if (allCardsFlipped || forced) {
         Swal.fire({
-            title: "Parabéns xuxu! 🎉",
-            text: "Aceita ser a minha pessoa? Quer namorar comigo? ❤️",
+            title: "Aceita ser a minha pessoa? Quer namorar comigo? ❤️",
             icon: "success",
             showDenyButton: true,
-            confirmButtonText: "Sim",
-            denyButtonText: "Claro!"
+            confirmButtonText: 'Sim <i class="fas fa-heart"></i>',
+            denyButtonText:  'Claro! <i class="fas fa-heart"></i>',
+            allowOutsideClick: false
         }).then((result) => {
             if (result.isConfirmed || result.isDenied) {
-                confetti({
-                    particleCount: 200,
-                    spread: 100,
-                    origin: { y: 0.6 }
-                });
+                // Verifica se confetti está disponível antes de chamar
+                if (typeof confetti === 'function') {
+                    confetti({
+                        particleCount: 1000,
+                        spread: 200,
+                        origin: { y: 0.4 }
+                    });
+                } else {
+                    console.warn("Confetti não está disponível. Certifique-se de incluir a biblioteca.");
+                }
 
-                Swal.fire({
-                    title: "Estamos namorando agora! 💖",
-                    text: "Te amo muito 😍",
-                    icon: "success",
-                    confirmButtonText: "Oba!"
-                }).then(() => {
-                    resetGame();
-                });
+                setTimeout(() => {
+                    Swal.fire({
+                        title: "Agora é oficial, estamos namorando! 💖",
+                        text: "Te amo muito 😍",
+                        icon: "success",
+                        confirmButtonText: "Oba!",
+                        allowOutsideClick: false
+                    }).then(() => {
+                        resetGame();
+                    });
+                }, 1000);
             }
         });
     }
@@ -122,5 +131,15 @@ function resetGame() {
     iniciarJogo(); // Reinicia tudo direitinho
 }
 
+document.addEventListener('keydown', function(e) {
+    if (e.key.toLowerCase() === 'f') {
+        e.preventDefault();
+        console.log("Tecla F pressionada - forçando fim de jogo");
+        checkGameOver(true); // Força o fim do jogo
+    }
+});
+
+
 // Começa o jogo ao carregar a página
 iniciarJogo();
+
