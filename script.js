@@ -91,12 +91,10 @@ function checkGameOver(forced = false) {
         Swal.fire({
             title: "Aceita ser a minha pessoa? Quer namorar comigo? ❤️",
             icon: "success",
-            showDenyButton: true,
-            confirmButtonText: 'Sim <i class="fas fa-heart"></i>',
-            denyButtonText:  'Claro! <i class="fas fa-heart"></i>',
-            allowOutsideClick: false
+            confirmButtonText: 'Claro! <i class="fas fa-heart"></i>',
+            allowOutsideClick: false,
         }).then((result) => {
-            if (result.isConfirmed || result.isDenied) {
+            if (result.isConfirmed) {
                 // Verifica se confetti está disponível antes de chamar
                 if (typeof confetti === 'function') {
                     confetti({

@@ -221,6 +221,28 @@ button:hover,
     .game-container {
         margin-top: 30px;
     }
+
+   /* Botão CONFIRMAR */
+    .swal2-confirm {
+        background-color: #3498db;
+        min-height: 40px;
+        min-width: 50px; /* Largura mínima igual ao deny */
+        padding: 0 1.5em;
+        font-size: 1em;
+        border-radius: 6px;
+        margin: 0 5px !important; /* Controle manual do margin */
+    }
+
+    /* Botão NEGAR */
+    .swal2-deny {
+        background-color: #2e58cc;
+        min-height: 40px;
+        min-width: 100px; /* Mesma largura do confirm */
+        padding: 0 1.5em;
+        font-size: 1em;
+        border-radius: 6px;
+        margin: 0 5px !important; /* Margem igual ao confirm */
+    }
 }
 
 @media (min-width: 769px) {
